@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Powered Agricultural Robot Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Exo', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #1a202c;
+    }
+    section {
+      scroll-margin-top: 80px;
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+    }
+    .hero-bg {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x600?text=Agricultural+Field');
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-img {
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-img:hover {
+      opacity: 0.8;
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50%;
+      display: none;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    #back-to-top:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="bg-black/95 fixed top-0 w-full z-50 shadow-lg" aria-label="Main navigation">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-3xl font-bold text-cyan-400">AgriBot</div>
+      <ul class="flex space-x-6 items-center">
+        <li><a href="#hero" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Home">Home</a></li>
+        <li><a href="#overview" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Overview">Overview</a></li>
+        <li><a href="#features" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Features">Features</a></li>
+        <li><a href="#steps" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Implementation">Implementation</a></li>
+        <li><a href="#gallery" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Gallery">Gallery</a></li>
+        <li><a href="#contact" class="text-gray-200 hover:text-cyan-400 transition" aria-label="Contact">Contact</a></li>
+        <li>
+          <select id="language" class="bg-gray-800 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="hi">हिंदी</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="bho">भोजपुरी</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ta">தமிழ்</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-bg py-32 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 animate-fade-in">AI-Powered Agricultural Robot</h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">Transforming farming with cutting-edge AI for sustainable, precise, and eco-friendly agriculture.</p>
+      <a href="#contact" class="bg-cyan-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-cyan-300 transition">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <main class="container mx-auto px-4 py-16">
+    <section id="overview" class="mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-i18n="overview-title">Project Overview</h2>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto" data-i18n="overview-text">
+        The AI-Powered Agricultural Robot is an innovative, low-cost solution built using Arduino UNO R3 and ESP32-CAM. It enhances eco-friendly farming by automatically detecting plant diseases using AI and spraying pesticides precisely only when needed.
+      </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-i18n="features-title">Key Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-3" data-i18n="f1">AI Disease Detection</h3>
+          <p class="text-gray-300" data-i18n="f1">AI-Based Plant Disease Detection using ESP32-CAM.</p>
+        </div>
+        <div class="card bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-3" data-i18n="f2">Environmental Monitoring</h3>
+          <p class="text-gray-300" data-i18n="f2">DHT22, Soil, and Ultrasonic Sensors for full environmental monitoring.</p>
+        </div>
+        <div class="card bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-3" data-i18n="f3">Automated Spraying</h3>
+          <p class="text-gray-300" data-i18n="f3">Automated Pesticide Spraying via servo-controlled pump.</p>
+        </div>
+        <div class="card bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-3" data-i18n="f4">Autonomous Movement</h3>
+          <p class="text-gray-300" data-i18n="f4">Autonomous Movement with plant detection stop logic.</p>
+        </div>
+        <div class="card bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-3" data-i18n="f5">Cloud Dashboard</h3>
+          <p class="text-gray-300" data-i18n="f5">Cloud Dashboard using Firebase for real-time data visualization.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Steps -->
+    <section id="steps" class="mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6" data-i18n="steps-title">Implementation Steps</h2>
+      <ol class="space-y-4">
+        <li class="card bg-gray-800 p-6 rounded-lg shadow-lg" data-i18n="s1">Connect all sensors to Arduino UNO and ESP32-CAM.</li>
+        <li class="card bg-gray-800 p-6 rounded-lg shadow-lg" data-i18n="s2">Train AI model using Google Colab and TensorFlow.</li>
+        <li class="card bg-gray-800 p-6 rounded-lg shadow-lg" data-i18n="s3">Integrate Firebase Realtime Database for data syncing.</li>
+        <li class="card bg-gray-800 p-6 rounded-lg shadow-lg" data-i18n="s4">Build a web and mobile dashboard with Firebase SDK.</li>
+        <li class="card bg-gray-800 p-6 rounded-lg shadow-lg" data-i18n="s5">Test on sample plants and deploy in field conditions.</li>
+      </ol>
+    </section>
+
+    <!-- Project Gallery -->
+    <section id="gallery" class="mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6">Project Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <img src="Picture1.jpg" alt="Robot in Field" class="gallery-img w-full h-64 object-cover" loading="lazy">
+          <div class="p-4">
+            <p class="text-gray-300">AI Robot navigating through crops.</p>
+          </div>
+        </div>
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <img src="Screenshot 2025-05-08 215443.png" alt="Sensor Setup" class="gallery-img w-full h-64 object-cover" loading="lazy">
+          <div class="p-4">
+            <p class="text-gray-300">Sensor integration with Arduino and ESP32-CAM.</p>
+          </div>
+        </div>
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <img src="Screenshot 2025-05-08 215946.png" alt="Dashboard View" class="gallery-img w-full h-64 object-cover" loading="lazy">
+          <div class="p-4">
+            <p class="text-gray-300">Real-time Firebase dashboard interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="mb-16">
+      <h2 class="text-4xl font-bold text-white mb-6">Contact Me</h2>
+      <form id="contact-form" class="bg-gray-800 p-8 rounded-lg max-w-lg mx-auto shadow-lg" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="8e7ccc74-dfe4-4562-b775-835d5015087f">
+        <div class="mb-6">
+          <label for="name" class="block text-gray-300 mb-2 font-medium">Name</label>
+          <input type="text" id="name" name="name" class="w-full p-3 rounded bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Your Name" required aria-required="true">
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
+          <input type="email" id="email" name="email" class="w-full p-3 rounded bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Your Email" required aria-required="true">
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-gray-300 mb-2 font-medium">Message</label>
+          <textarea id="message" name="message" class="w-full p-3 rounded bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-400" rows="5" placeholder="Your Message" required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="bg-cyan-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-cyan-300 transition w-full">Send Message</button>
+        <p id="form-message" class="mt-4 text-center text-gray-300 hidden"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/95 py-8 text-center">
+    <p class="text-gray-400 text-lg" data-i18n="footer">© 2025 Sujon | AI-Powered Agricultural Robot | Lovely Professional University</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img id="lightbox-img" src="" alt="Lightbox Image">
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        "overview-title": "Project Overview",
+        "overview-text": "The AI-Powered Agricultural Robot is an innovative, low-cost solution built using Arduino UNO R3 and ESP32-CAM. It enhances eco-friendly farming by automatically detecting plant diseases using AI and spraying pesticides precisely only when needed.",
+        "features-title": "Key Features",
+        f1: "AI-Based Plant Disease Detection using ESP32-CAM.",
+        f2: "DHT22, Soil, and Ultrasonic Sensors for full environmental monitoring.",
+        f3: "Automated Pesticide Spraying via servo-controlled pump.",
+        f4: "Autonomous Movement with plant detection stop logic.",
+        f5: "Cloud Dashboard using Firebase for real-time data visualization.",
+        "steps-title": "Implementation Steps",
+        s1: "Connect all sensors to Arduino UNO and ESP32-CAM.",
+        s2: "Train AI model using Google Colab and TensorFlow.",
+        s3: "Integrate Firebase Realtime Database for data syncing.",
+        s4: "Build a web and mobile dashboard with Firebase SDK.",
+        s5: "Test on sample plants and deploy in field conditions.",
+        footer: "© 2025 Sujon | AI-Powered Agricultural Robot | Lovely Professional University"
+      },
+      bn: {
+        "overview-title": "প্রকল্পের সারাংশ",
+        "overview-text": "AI-চালিত কৃষি রোবট একটি উদ্ভাবনী ও স্বল্পমূল্যের সমাধান, যা Arduino UNO R3 এবং ESP32-CAM ব্যবহার করে তৈরি করা হয়েছে। এটি স্বয়ংক্রিয়ভাবে উদ্ভিদের রোগ শনাক্ত করে এবং প্রয়োজন অনুযায়ী কীটনাশক স্প্রে করে।",
+        "features-title": "মূল বৈশিষ্ট্যসমূহ",
+        f1: "ESP32-CAM ব্যবহার করে উদ্ভিদের রোগ শনাক্তকরণ।",
+        f2: "DHT22, মাটির আর্দ্রতা ও আল্ট্রাসোনিক সেন্সর দ্বারা সম্পূর্ণ পরিবেশ পর্যবেক্ষণ।",
+        f3: "সার্ভো কন্ট্রোল পাম্পের মাধ্যমে স্বয়ংক্রিয় কীটনাশক স্প্রে।",
+        f4: "উদ্ভিদ শনাক্ত করে রোবট নিজে থেমে যায়।",
+        f5: "Firebase ভিত্তিক রিয়েল-টাইম ড্যাশবোর্ড।",
+        "steps-title": "বাস্তবায়ন ধাপসমূহ",
+        s1: "সব সেন্সর Arduino UNO এবং ESP32-CAM এ সংযুক্ত করুন।",
+        s2: "Google Colab ও TensorFlow ব্যবহার করে AI মডেল প্রশিক্ষণ দিন।",
+        s3: "Firebase রিয়েলটাইম ডাটাবেসের সাথে সংযোগ করুন।",
+        s4: "Firebase SDK দিয়ে ওয়েব ও অ্যাপ ড্যাশবোর্ড তৈরি করুন।",
+        s5: "নমুনা উদ্ভিদে পরীক্ষা করে মাঠে প্রয়োগ করুন।",
+        footer: "© ২০২৫ সুজন | AI-চালিত কৃষি রোবট | লভলি প্রফেশনাল ইউনিভার্সিটি"
+      },
+      hi: {
+        "overview-title": "परियोजना अवलोकन",
+        "overview-text": "AI-संचालित कृषि रोबोट एक अभिनव और किफायती समाधान है जो Arduino UNO R3 और ESP32-CAM का उपयोग करता है। यह स्वचालित रूप से पौधों की बीमारियों का पता लगाता है और आवश्यकतानुसार कीटनाशक का छिड़काव करता है।",
+        "features-title": "मुख्य विशेषताएं",
+        f1: "ESP32-CAM का उपयोग करके AI आधारित रोग पहचान।",
+        f2: "DHT22, मृदा और अल्ट्रासोनिक सेंसर द्वारा पर्यावरण निगरानी।",
+        f3: "सर्वो नियंत्रित पंप द्वारा स्वचालित कीटनाशक छिड़काव।",
+        f4: "पौधे की पहचान पर रोबोट स्वयं रुक जाता है।",
+        f5: "Firebase आधारित रीयल-टाइम डैशबोर्ड।",
+        "steps-title": "कार्यान्वयन चरण",
+        s1: "सभी सेंसर Arduino UNO और ESP32-CAM से जोड़ें।",
+        s2: "Google Colab और TensorFlow के साथ AI मॉडल को प्रशिक्षित करें।",
+        s3: "Firebase रीयलटाइम डेटाबेस के साथ एकीकरण करें।",
+        s4: "Firebase SDK का उपयोग करके वेब और मोबाइल डैशबोर्ड बनाएं।",
+        s5: "नमूना पौधों पर परीक्षण करके क्षेत्र में लागू करें।",
+        footer: "© 2025 सुजन | AI-संचालित कृषि रोबोट | लवली प्रोफेशनल यूनिवर्सिटी"
+      },
+      pa: {
+        "overview-title": "ਪਰਿਯੋਜਨਾ ਦਾ ਜਾਣਕਾਰੀਆਂ",
+        "overview-text": "AI ਚਲਿਤ ਖੇਤੀਬਾੜੀ ਰੋਬੋਟ ਇੱਕ ਨਵੀਨ ਅਤੇ ਘੱਟ ਲਾਗਤ ਵਾਲਾ ਹੱਲ ਹੈ ਜੋ Arduino UNO R3 ਅਤੇ ESP32-CAM ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਇਹ ਪੌਦਿਆਂ ਦੀ ਬੀਮਾਰੀ ਨੂੰ ਖੁਦਕਾਰ ਪਛਾਣਦਾ ਹੈ ਅਤੇ ਜ਼ਰੂਰਤ ਮੁਤਾਬਕ ਕੀਟਨਾਸ਼ਕ ਛਿੜਕਦਾ ਹੈ।",
+        "features-title": "ਮੁੱਖ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+        f1: "ESP32-CAM ਦੀ ਵਰਤੋਂ ਕਰਕੇ AI ਅਧਾਰਤ ਰੋਗ ਪਛਾਣ।",
+        f2: "DHT22, ਮਿੱਟੀ ਅਤੇ ਅਲਟਰਾਸੋਨਿਕ ਸੈਂਸਰ ਨਾਲ ਪਰਿਆਵਰਨ ਨਿਗਰਾਨੀ।",
+        f3: "ਸਰਵੋ ਪੰਪ ਰਾਹੀਂ ਖੁਦਕਾਰ ਛਿੜਕਾਅ।",
+        f4: "ਪੌਦੇ ਦੀ ਪਛਾਣ ਕਰਕੇ ਰੋਬੋਟ ਰੁੱਕ ਜਾਂਦਾ ਹੈ।",
+        f5: "Firebase ਆਧਾਰਿਤ ਲਾਈਵ ਡੈਸ਼ਬੋਰਡ।",
+        "steps-title": "ਲਾਗੂ ਕਰਨ ਦੇ ਕਦਮ",
+        s1: "ਸਾਰੇ ਸੈਂਸਰ Arduino UNO ਅਤੇ ESP32-CAM ਨਾਲ ਜੋੜੋ।",
+        s2: "Google Colab ਅਤੇ TensorFlow ਨਾਲ AI ਮਾਡਲ ਨੂੰ ਟ੍ਰੇਨ ਕਰੋ।",
+        s3: "Firebase ਰੀਅਲਟਾਈਮ ਡਾਟਾਬੇਸ ਨਾਲ ਇੰਟੀਗਰੇਟ ਕਰੋ।",
+        s4: "Firebase SDK ਨਾਲ ਵੈੱਬ ਅਤੇ ਐਪ ਡੈਸ਼ਬੋਰਡ ਬਣਾਓ।",
+        s5: "ਮਾਡਲ ਪੌਦਿਆਂ 'ਤੇ ਟੈਸਟ ਕਰਕੇ ਖੇਤਰ ਵਿੱਚ ਲਾਗੂ ਕਰੋ।",
+        footer: "© 2025 ਸੁਜਨ | AI ਚਲਿਤ ਖੇਤੀ ਰੋਬੋਟ | ਲਵਲੀ ਪ੍ਰੋਫੈਸ਼ਨਲ ਯੂਨੀਵਰਸਿਟੀ"
+      },
+      bho: {
+        "overview-title": "परियोजना के झलक",
+        "overview-text": "AI-आधारित कृषि रोबोट एक नवाचारी आ सस्ता समाधान हवे जे Arduino UNO R3 और ESP32-CAM के उपयोग से बनल बा। ई अपने आप पौधा के बीमारी के पहचान करता आ जरूरत पर कीटनाशक छिड़काव करता।",
+        "features-title": "मुख्य विशेषता",
+        f1: "ESP32-CAM से AI आधारित रोग पहचान।",
+        f2: "DHT22, माटी आ अल्ट्रासोनिक सेंसर से पर्यावरण के निगरानी।",
+        f3: "सर्वो पंप से अपने आप कीटनाशक के छिड़काव।",
+        f4: "पौधा के पहचान के बाद रोबोट रुक जाला।",
+        f5: "Firebase आधारित रियल टाइम डैशबोर्ड।",
+        "steps-title": "कार्यान्वयन चरण",
+        s1: "सब सेंसर के Arduino UNO और ESP32-CAM से जोड़ीं।",
+        s2: "Google Colab आ TensorFlow से AI मॉडल तैयार करीं।",
+        s3: "Firebase के साथ डेटा सिंक करीं।",
+        s4: "Firebase SDK से वेब और मोबाइल डैशबोर्ड बनाई।",
+        s5: "नमूना पौधा पर टेस्ट कर के खेत में इस्तेमाल करीं।",
+        footer: "© 2025 सुजन | AI आधारित कृषि रोबोट | लवली प्रोफेशनल यूनिवर्सिटी"
+      },
+      te: {
+        "overview-title": "ప్రాజెక్ట్ అవలోకనం",
+        "overview-text": "AI ఆధారిత వ్యవసాయ రోబోట్ Arduino UNO R3 మరియు ESP32-CAM ఉపయోగించి రూపొందించబడిన చౌకైన పరిష్కారం. ఇది స్వయంచాలకంగా మొక్కల వ్యాధులను గుర్తించి అవసరమైనప్పుడు మాత్రమే పెస్టిసైడ్లను పిచికారీ చేస్తుంది.",
+        "features-title": "ప్రధాన లక్షణాలు",
+        f1: "ESP32-CAM ద్వారా AI ఆధారిత వ్యాధి గుర్తింపు。",
+        f2: "DHT22, నేల, అల్ట్రాసోనిక్ సెన్సార్లతో పర్యావరణ ట్రాకింగ్。",
+        f3: "సర్వో నియంత్రిత పంపుతో ఆటోమేటెడ్ పెస్టిసైడ్ స్ప్రేయింగ్。",
+        f4: "మొక్కను గుర్తించిన తర్వాత రోబోట్ ఆగుతుంది。",
+        f5: "Firebase ఆధారిత లైవ్ డాష్‌బోర్డ్。",
+        "steps-title": "అమలు దశలు",
+        s1: "అన్ని సెన్సార్లను Arduino UNO మరియు ESP32-CAMకి కనెక్ట్ చేయండి。",
+        s2: "Google Colab మరియు TensorFlowతో AI మోడల్ ట్రైన్ చేయండి。",
+        s3: "Firebase డేటాబేస్‌తో సమకాలీకరించండి。",
+        s4: "Firebase SDKతో వెబ్ & మొబైల్ డాష్‌బోర్డును రూపొందించండి。",
+        s5: "నమూనా మొక్కలపై పరీక్షించి ఫీల్డ్‌లో అమలు చేయండి。",
+        footer: "© 2025 సుజోన్ | AI వ్యవసాయ రోబోట్ | లవ్లీ ప్రొఫెషనల్ యూనివర్సిటీ"
+      },
+      ml: {
+        "overview-title": "പദ്ധതിയുടെ അവലോകനം",
+        "overview-text": "AI-ആധാരിതമായ കൃഷി റോബോട്ട് Arduino UNO R3, ESP32-CAM ഉപയോഗിച്ച് നിർമ്മിച്ച ഒരു ചെലവുകുറഞ്ഞ പരിഹാരമാണ്. ഇത് സസ്യരോഗങ്ങൾ കണ്ടെത്തുകയും ആവശ്യമായപ്പോൾ മാത്രം കീടനാശിനി തളിക്കുക എന്നിവ ചെയ്യുന്നു.",
+        "features-title": "പ്രധാന സവിശേഷതകൾ",
+        f1: "ESP32-CAM ഉപയോഗിച്ച് AI അടിസ്ഥാനത്തിൽ രോഗം കണ്ടെത്തൽ.",
+        f2: "DHT22, മണ്ണ്, അൾട്രാസോണിക് സെൻസറുകൾ ഉപയോഗിച്ച് പൂർണ്ണപരിചരണ നിരീക്ഷണം.",
+        f3: "സെർവോ നിയന്ത്രിത പമ്പ് ഉപയോഗിച്ച് ഓട്ടോമാറ്റിക് കീടനാശിനി തളിക്കൽ.",
+        f4: "സസ്യം കണ്ടെത്തിയാൽ റോബോട്ട് നില്ക്കുന്നു.",
+        f5: "Firebase ഉപയോഗിച്ച് തത്സമയ ഡാഷ്‌ബോർഡ്.",
+        "steps-title": "നടപടി ഘട്ടങ്ങൾ",
+        s1: "എല്ലാ സെൻസറുകളും Arduino UNO, ESP32-CAM നോടൊപ്പം കണക്ട് ചെയ്യുക.",
+        s2: "Google Colab, TensorFlow ഉപയോഗിച്ച് AI മോഡൽ ട്രെയിൻ ചെയ്യുക.",
+        s3: "Firebase ഡാറ്റാബേസുമായി ഏകീകരിക്കുക.",
+        s4: "Firebase SDK ഉപയോഗിച്ച് വെബ്, മൊബൈൽ ഡാഷ്‌ബോർഡ് നിർമ്മിക്കുക.",
+        s5: "ഉദാഹരണ സസ്യങ്ങളിൽ പരീക്ഷിച്ച് നിലവാരത്തിൽ ഉപയോഗിക്കുക.",
+        footer: "© 2025 സുജോൺ | AI കൃഷി റോബോട്ട് | ലവ്ലി പ്രൊഫഷണൽ യൂണിവേഴ്‌സിറ്റി"
+      },
+      ta: {
+        "overview-title": "திட்டத்தின் விளக்கம்",
+        "overview-text": "AI ஆதாரமுள்ள வேளாண் ரோபோட் என்பது Arduino UNO R3 மற்றும் ESP32-CAM ஐ பயன்படுத்தி உருவாக்கப்பட்ட குறைந்த செலவுள்ள புதிய தீர்வாகும். இது தானாகவே செடியின் நோய்களை கண்டறிந்து தேவையான நேரத்தில் மட்டுமே பூச்சி மருந்து தெளிக்கிறது.",
+        "features-title": "முக்கிய அம்சங்கள்",
+        f1: "ESP32-CAM மூலமாக AI நோய் கண்டறிதல்.",
+        f2: "DHT22, மண் மற்றும் அல்ட்ராசோனிக் சென்சார்களால் சூழலியல் கண்காணிப்பு.",
+        f3: "சர்வோ பம்ப் மூலம் தானியங்கி பூச்சி மருந்து தெளிப்பு.",
+        f4: "செடியை கண்டதும் ரோபோட் தானாக நிற்கும்.",
+        f5: "Firebase ஐ பயன்படுத்தி நேரடி டாஷ்போர்டு.",
+        "steps-title": "செயல்படுத்தும் படிகள்",
+        s1: "எல்லா சென்சார்களையும் Arduino UNO மற்றும் ESP32-CAM க்கு இணைக்கவும்.",
+        s2: "Google Colab மற்றும் TensorFlow மூலம் AI மாதிரியை பயிற்சி செய்யவும்.",
+        s3: "Firebase தரவுத்தொகையுடன் ஒருங்கிணைக்கவும்.",
+        s4: "Firebase SDK கொண்டு வலை மற்றும் செயலி டாஷ்போர்டு உருவாக்கவும்.",
+        s5: "மாதிரி செடிகளில் சோதனை செய்து புலத்தில் பயன்படுத்தவும்。",
+        footer: "© 2025 சுஜன் | AI வேளாண் ரோபோட் | லவ்லி ப்ரொஃபெஷனல் யூனிவர்சிட்டி"
+      },
+      mr: {
+        "overview-title": "प्रकल्पाचा आढावा",
+        "overview-text": "AI-आधारित कृषी रोबोट हा Arduino UNO R3 आणि ESP32-CAM वापरून तयार केलेला एक किफायतशीर आणि नाविन्यपूर्ण उपाय आहे. हा रोबोट आपोआप पिकांच्या आजारांचे निदान करतो आणि गरज असल्यास कीटकनाशक फवारतो.",
+        "features-title": "मुख्य वैशिष्ट्ये",
+        f1: "ESP32-CAM द्वारे AI आधारित रोग ओळख.",
+        f2: "DHT22, माती आणि अल्ट्रासोनिक सेन्सर्सद्वारे पर्यावरण निरीक्षण.",
+        f3: "सर्व्हो पंपद्वारे स्वयंचलित कीटकनाशक फवारणी.",
+        f4: "पिके ओळखल्यानंतर रोबोट थांबतो.",
+        f5: "Firebase वर आधारित थेट डॅशबोर्ड.",
+        "steps-title": "अंमलबजावणीची पावले",
+        s1: "सर्व सेन्सर Arduino UNO आणि ESP32-CAM शी कनेक्ट करा.",
+        s2: "Google Colab आणि TensorFlow वापरून AI मॉडेल ट्रेन करा.",
+        s3: "Firebase रिअलटाईम डेटाबेसशी समाकलित करा.",
+        s4: "Firebase SDK वापरून वेब व मोबाईल डॅशबोर्ड तयार करा.",
+        s5: "नमुना पिकांवर चाचणी करून प्रत्यक्ष शेतात वापरा.",
+        footer: "© 2025 सुजन | AI आधारित कृषी रोबोट | लव्हली प्रोफेशनल युनिव्हर्सिटी"
+      }
+    };
+
+    // Language Switcher
+    const langSelect = document.getElementById("language");
+    langSelect.addEventListener("change", () => {
+      const selectedLang = langSelect.value;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = translations[selectedLang][key];
+      });
+    });
+
+    // Web3Forms Submission
+    const form = document.getElementById("contact-form");
+    const formMessage = document.getElementById("form-message");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      formMessage.classList.add("hidden");
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData
+        });
+        const result = await response.json();
+        if (result.success) {
+          formMessage.classList.remove("hidden");
+          formMessage.classList.remove("text-red-400");
+          formMessage.classList.add("text-green-400");
+          formMessage.innerText = "Message sent successfully!";
+          form.reset();
+        } else {
+          throw new Error(result.message || "Failed to send message.");
+        }
+      } catch (error) {
+        formMessage.classList.remove("hidden");
+        formMessage.classList.remove("text-green-400");
+        formMessage.classList.add("text-red-400");
+        formMessage.innerText = error.message || "An error occurred. Please try again.";
+      }
+    });
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    document.querySelectorAll(".gallery-img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
